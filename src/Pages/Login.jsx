@@ -3,7 +3,7 @@ import React from 'react'
 const Login = ({atLoginPage,setLoginPage}) => {
   return (
     <div>
-      login
+      login 
     </div>
   )
 }
