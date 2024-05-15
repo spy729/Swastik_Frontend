@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login = () => {
+const Login = ({atLoginPage,setLoginPage}) => {
   return (
     <div>
       login

@@ -3,12 +3,16 @@ import search from "./assets/LightGray.png"
 import { Routes,Route } from 'react-router-dom'
 import Login from './Pages/Login'
 import HomePage from './Pages/HomePage'
+import Signup from './Pages/Signup'
 
 function App() {
   const [isLoading , setLoading]=useState(false)
+  const [atLoginPage,setLoginPage]=useState(false)
   return (
     <>
     <div>
+    {
+      !atLoginPage&&
       <nav className='flex p-3 pl-7 pr-7 items-center justify-between shadow-xl'>
         <div className='flex gap-12 justify-center items-center  '>
           <h1 className='text-red-500 text-3xl'>Logo</h1>
@@ -32,10 +36,13 @@ function App() {
         }
         
       </nav>
+    }
+      
     </div>
     <Routes>
       <Route path="/" element={<HomePage/>}></Route>
-      <Route path="/login" element={<Login></Login>}></Route>
+      <Route path="/login" element={<Login atLoginPage={atLoginPage} setLoginPage={setLoginPage}></Login>}></Route>
+      <Route path="/signup" element={<Signup atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
     </Routes>
     </>
   )
