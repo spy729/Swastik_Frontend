@@ -4,9 +4,11 @@ import hart2 from "../assets/hart2.png"
 import arrow from "../assets/arrow.png"
 import people from "../assets/people.png"
 import clock from "../assets/clock.png"
+import TiltComponent from "react-parallax-tilt";
 const HackathonCard = ({card}) => {
   const [isLiked,setLiked]=useState(true)
   return (
+    <TiltComponent tiltMaxAngleX={5} tiltMaxAngleY={5} tiltReverse={true}>
     <div  className=' relative w-[390px] h-[405px] rounded-xl border border-black'>
       <img className='w-[390px] h-[120px] rounded-t-xl' src={card.bgimg}></img>
       <img className='absolute bg-customGray h-[100px] w-[100px] object-contain rounded-full left-8 top-[5rem]' src={card.mainimg}></img>
@@ -35,7 +37,9 @@ const HackathonCard = ({card}) => {
       <img className='h-[20px] w-[20px] object-contain mb-3' src={arrow}></img>
       </div>
       </div>
+     
     </div>
+    </TiltComponent>
   )
 }
 
