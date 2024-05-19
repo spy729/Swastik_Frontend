@@ -9,3 +9,17 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f0f0da;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #0073E6;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #033d76;
+}
