@@ -17,6 +17,7 @@ export default {
         customPurple:"#9747FF",
         customBrightBlueBg:"#145BE9",
         customWhite:"#F7F9FB",
+        customFooterBg:"#F0F5F5",
       },
       boxShadow: {
         bottom: '0px 4px 6px rgba(0, 0, 0, 0.1)',

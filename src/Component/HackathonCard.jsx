@@ -9,7 +9,7 @@ const HackathonCard = ({card}) => {
   const [isLiked,setLiked]=useState(true)
   return (
     <TiltComponent tiltMaxAngleX={5} tiltMaxAngleY={5} tiltReverse={true}>
-    <div  className=' relative w-[390px] h-[405px] rounded-xl border border-black'>
+    <div  className='bg-white relative w-[390px] h-[405px] rounded-xl border border-black'>
       <img className='w-[390px] h-[120px] rounded-t-xl' src={card.bgimg}></img>
       <img className='absolute bg-customGray h-[100px] w-[100px] object-contain rounded-full left-8 top-[5rem]' src={card.mainimg}></img>
       <div className=' pl-5 pr-5 mt-[5rem] flex text-customGrayText justify-between'>

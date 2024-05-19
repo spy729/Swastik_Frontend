@@ -3,7 +3,7 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const HackathonCard2 = ({CardData}) => {
   return (
-    <div className='max-w-[670px] m-h-[420px] rounded-xl border-[2px] border-customGrayText text-customGrayText p-5'>
+    <div className=' bg-white max-w-[670px] m-h-[420px] rounded-xl border-[2px] border-customGrayText text-customGrayText p-5'>
       <div className='flex justify-between gap-10'>
         <div className='flex gap-5'>
             <img src={CardData.img}></img>

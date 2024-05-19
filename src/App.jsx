@@ -30,7 +30,7 @@ function App() {
   };
   return (
     <>
-    <div>
+    <div >
       <nav className='flex p-3 pl-7 pr-7 items-center justify-between shadow-xl'>
         <div className='flex gap-12 justify-center items-center  '>
         <NavLink to="/">

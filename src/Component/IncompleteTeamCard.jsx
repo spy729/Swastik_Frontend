@@ -3,8 +3,8 @@ import { FaCircleUser } from "react-icons/fa6";
 
 const IncompleteTeamCard = ({data}) => {
   return (
-      <div className='flex justify-between items-center gap-10 m-w[680px] border-2 border-customGrayText rounded-xl p-5 mr-4'>
-                <div className='flex  flex-col gap-3'>
+      <div className=' flex justify-between items-center gap-10 m-w[680px] border-2 border-customGrayText rounded-xl p-5 mr-4'>
+                <div className='flex  flex-col gap-3 '>
                     <div className='flex items-center gap-3'>
                         <img className='h-[2.5rem] w-[2.5rem] border-2 border-customGrayText p-1 rounded-md object-contain' src={data.img}></img>
                         <div>

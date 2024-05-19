@@ -6,7 +6,7 @@ import HackathonGirl from "./assets/HackathonGirl.png"
 import HackathonCard2 from './Component/HackathonCard2'
 import HackathonImg1 from "./assets/HackathonImg1.png"
 import HackathonImg2 from "./assets/HackathonImg2.png"
-import footer from "./assets/footer.png"
+import FooterSection from './Component/FooterSection'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 const HackathonPage = () => {
@@ -114,7 +114,7 @@ const HackathonPage = () => {
     const visibleCardData = CardData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     const visibleCardData2 = CardData.slice((currentPage - 1) * 2, currentPage * 2);
   return (
-    <div>
+    <div >
       <div className='mt-[7rem] flex justify-center items-start '>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlimited </span>Opportunites</p>
@@ -187,10 +187,9 @@ const HackathonPage = () => {
                 </div>
             </div>
 
-            {/* FOOTER */}
-            <div className='w-full mt-[8rem]'>
-          <img className='w-full' src={footer}></img>
-      </div>
+            <div>
+        <FooterSection/>
+        </div>
     </div>
   )
 }
