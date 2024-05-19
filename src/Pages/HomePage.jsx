@@ -18,7 +18,8 @@ import user3 from "../assets/user3.png"
 import user4 from "../assets/user4.png"
 import user5 from "../assets/user5.png"
 import footer from "../assets/footer.png"
-const HomePage = () => {
+import { NavLink } from 'react-router-dom'
+const HomePage = ({isLoggedIn}) => {
   const CardData=[
     {
       bgimg:Cardbg1,
@@ -132,7 +133,17 @@ const HomePage = () => {
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlock</span> New Hackathon</p>
             <p className='max-w-[650px] text-3xl leading-normal' >Explore the opportunites from across the globe to participate and showcase your skills and gain experties or collaborate with professionals.</p>
             <div className='mt-4 flex gap-[5rem] items-center'>
-                <button className='bg-customBlue text-white text-lg p-2.5 pl-4 pr-4 rounded-md'>Join Hackathon</button>
+                {
+                  isLoggedIn?
+                  <NavLink to="/hackathon">
+                  <button className='bg-customBlue text-white text-lg p-2.5 pl-4 pr-4 rounded-md'>Join Hackathon</button>
+                  </NavLink>:
+                  <NavLink to="/login">
+                  <button className='bg-customBlue text-white text-lg p-2.5 pl-4 pr-4 rounded-md'>Join Hackathon</button>
+                  </NavLink>
+                }
+                
+                
                 <div className='flex justify-center items-center gap-2'>
                     <img src={grpImg}></img>
                     <p className='text-sm font-medium'>Participated In Hackathons</p>
