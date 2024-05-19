@@ -5,7 +5,7 @@ import palm from "../assets/palm.png"
 import { FcGoogle } from "react-icons/fc";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const navigate=useNavigate();
@@ -60,16 +60,18 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
       </div>
       <form className=' relative flex flex-col gap-5' >
         <input className='border-[1px] w-full rounded-md border-black p-2' 
-        type='text'
+        type='email'
          placeholder='Email ID'
          value={email}
          onChange={(e)=>setEmail(e.target.value)}
+         required
          ></input>
         <input className='border-[1px] w-full rounded-md border-black p-2'
          type={isShow ? 'text' : 'password'}
           placeholder='Enter Your Password'
           value={password}
          onChange={(e)=>setPassword(e.target.value)}
+         required
           ></input>
         {
           !isShow ?
@@ -78,7 +80,7 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
         }
         <button className='bg-customBlue text-white rounded-3xl p-2' onClick={handleSubmit}>Login</button>
       </form>
-      <button className='border-[1px] border-black rounded-3xl p-2 text-customGrayText'>Don’t have any Account ? <span className='text-customBrightBlue'>Sign up</span></button>
+      <button className='border-[1px] border-black rounded-3xl p-2 text-customGrayText'>Don’t have any Account ? <span className='text-customBrightBlue'> <NavLink to="/signup">Sign up</NavLink> </span></button>
 
       </div>
     </div>

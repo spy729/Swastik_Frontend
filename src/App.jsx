@@ -8,6 +8,8 @@ import { FaRegUser  } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import HackathonPage from './HackathonPage'
 import BuildersPage from './Pages/BuildersPage'
+import { FaRegUserCircle } from "react-icons/fa";
+import { FaCircleUser } from "react-icons/fa6";
 
 function App() {
   const navigate=useNavigate();
@@ -62,9 +64,9 @@ function App() {
          <div>
         {
           !isUserClicked ?
-          <FaRegUser onClick={()=>setUserClicked(!isUserClicked)} className='text-[1.75rem] mr-5' /> :
+          <FaRegUserCircle onClick={()=>setUserClicked(!isUserClicked)} className='text-[1.75rem] mr-5' /> :
           <div>
-          <FaUser  onClick={()=>setUserClicked(!isUserClicked)} className='text-[1.75rem] mr-5' />
+          <FaCircleUser  onClick={()=>setUserClicked(!isUserClicked)} className='text-[1.75rem] mr-5' />
           {isUserClicked && (
                   <div className=' z-10 absolute right-0 mt-2 mr-2 w-48 bg-white border rounded-lg shadow-lg'>
                     <ul className='flex flex-col p-2 text-[1.2rem]'>
@@ -88,7 +90,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>}></Route>
       <Route path="/login" element={<Login setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}></Login>}></Route>
-      <Route path="/signup" element={<Signup atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
+      <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
       <Route path="/hackathon" element={<HackathonPage/>}></Route>
       <Route path='/builders' element={<BuildersPage/>}/>
     </Routes>
