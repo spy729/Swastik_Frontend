@@ -1,4 +1,5 @@
 import React from 'react'
+import MainBg from "../assets/MainBg.png"
 import imagetop from "../assets/Rectangle 4.png"
 import grpImg from "../assets/Group 8.png"
 import CarsouleImage1 from "../assets/CarsouleImage1.png"
@@ -17,8 +18,10 @@ import user2 from "../assets/user2.png"
 import user3 from "../assets/user3.png"
 import user4 from "../assets/user4.png"
 import user5 from "../assets/user5.png"
-import footer from "../assets/footer.png"
+
 import { NavLink } from 'react-router-dom'
+import FooterSection from '../Component/FooterSection'
+
 const HomePage = ({isLoggedIn}) => {
   const CardData=[
     {
@@ -127,8 +130,9 @@ const HomePage = ({isLoggedIn}) => {
     },
   ]
   return (
-    <div>
-      <div className='mt-[7rem] flex justify-around '>
+    // className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBg})`}}
+    <div >
+      <div className='pt-[7rem] flex justify-around'>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlock</span> New Hackathon</p>
             <p className='max-w-[650px] text-3xl leading-normal' >Explore the opportunites from across the globe to participate and showcase your skills and gain experties or collaborate with professionals.</p>
@@ -221,9 +225,8 @@ const HomePage = ({isLoggedIn}) => {
         </div>
       </div>
 
-            {/* FOOTER */}
-      <div className='w-full mt-[12rem]'>
-          <img className='w-full' src={footer}></img>
+      <div>
+      <FooterSection/>
       </div>
     </div>
   )
