@@ -6,8 +6,11 @@ import HomePage from './Pages/HomePage'
 import Signup from './Pages/Signup'
 import { FaRegUser  } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import HackathonPage from './HackathonPage'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
+  const navigate=useNavigate()
   const [isLoading , setLoading]=useState(false)
   const [atLoginPage,setLoginPage]=useState(false)
   const [isLoggedIn,setLoggedIn]=useState(false);
@@ -27,8 +30,13 @@ function App() {
           </form>
           
           <li className='flex gap-8 justify-center items-center text-lg'>
-            <ul>Discover</ul>
-            <ul>Hackathons</ul>
+            <NavLink to="/"><ul>Discover</ul></NavLink>
+            {
+              isLoggedIn?
+              <NavLink to="/hackathon"><ul>Hackathons</ul></NavLink>:
+              <NavLink to="/login"><ul>Hackathons</ul></NavLink>
+            }
+            
             <ul>competator</ul>
           </li>
         </div>
@@ -55,7 +63,9 @@ function App() {
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>My Profile</li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Notifications</li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Settings</li>
-                      <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Logout</li>
+                      <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'
+                      onClick={()=>{setLoggedIn(false);navigate("/");setUserClicked(false)}}
+                      >Logout</li>
                     </ul>
                   </div>
                 )}
@@ -68,9 +78,10 @@ function App() {
       
     </div>
     <Routes>
-      <Route path="/" element={<HomePage/>}></Route>
-      <Route path="/login" element={<Login atLoginPage={atLoginPage} setLoginPage={setLoginPage}></Login>}></Route>
+      <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>}></Route>
+      <Route path="/login" element={<Login setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}></Login>}></Route>
       <Route path="/signup" element={<Signup atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
+      <Route path="/hackathon" element={<HackathonPage/>}></Route>
     </Routes>
     </>
   )

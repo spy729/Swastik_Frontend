@@ -13,6 +13,10 @@ export default {
         customGray:"#D9D9D9",
         customGrayText:"#6B6B6B",
         customBrightBlue:"#0073E6",
+        customPink:"#E214B5",
+        customPurple:"#9747FF",
+        customBrightBlueBg:"#145BE9",
+        customWhite:"#F7F9FB",
       },
       boxShadow: {
         bottom: '0px 4px 6px rgba(0, 0, 0, 0.1)',
