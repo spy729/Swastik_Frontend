@@ -1,20 +1,33 @@
 import { useState } from 'react'
 import search from "./assets/LightGray.png"
-import { Routes,Route,NavLink } from 'react-router-dom'
+import { Routes,Route,NavLink,useLocation,useNavigate } from 'react-router-dom'
 import Login from './Pages/Login'
 import HomePage from './Pages/HomePage'
 import Signup from './Pages/Signup'
 import { FaRegUser  } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import HackathonPage from './HackathonPage'
-import { useNavigate } from 'react-router-dom'
+import BuildersPage from './Pages/BuildersPage'
 
 function App() {
-  const navigate=useNavigate()
+  const navigate=useNavigate();
+  const location = useLocation();
   const [isLoading , setLoading]=useState(false)
   const [atLoginPage,setLoginPage]=useState(false)
   const [isLoggedIn,setLoggedIn]=useState(false);
   const [isUserClicked,setUserClicked]=useState(false);
+
+  const getNavLinkClass = (path) => {
+     if ((isLoggedIn && location.pathname === path)||(!isLoggedIn && path === "/")) {
+      return 'underline';
+    } else if (!isLoggedIn && location.pathname === path && path !== "/login") {
+      return '';
+    } else if (!isLoggedIn && path === "/login" && (location.pathname === "/hackathon" || location.pathname === "/builders")) {
+      return 'underline';
+    }
+     
+    return '';
+  };
   return (
     <>
     <div>
@@ -30,16 +43,11 @@ function App() {
           </form>
           
           <li className='flex gap-8 justify-center items-center text-lg'>
-            <NavLink to="/"><ul>Discover</ul></NavLink>
-            {
-              isLoggedIn?
-              <NavLink to="/hackathon"><ul>Hackathons</ul></NavLink>:
-              <NavLink to="/login"><ul>Hackathons</ul></NavLink>
-            }
-            
-            <ul>competator</ul>
-          </li>
-        </div>
+              <NavLink to="/" className={getNavLinkClass("/")}><ul>Discover</ul></NavLink>
+              <NavLink to={isLoggedIn ? "/hackathon" : "/login"} className={getNavLinkClass(isLoggedIn ? "/hackathon" : "/login")}><ul>Hackathons</ul></NavLink>
+              <NavLink to={isLoggedIn ? "/builders" : "/login"} className={getNavLinkClass(isLoggedIn ? "/builders" : "/login")}><ul>Builders</ul></NavLink>
+            </li>
+          </div>
         {
           !isLoggedIn ?
           <div className='flex justify-center items-center text-xl gap-5'>
@@ -82,6 +90,7 @@ function App() {
       <Route path="/login" element={<Login setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}></Login>}></Route>
       <Route path="/signup" element={<Signup atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
       <Route path="/hackathon" element={<HackathonPage/>}></Route>
+      <Route path='/builders' element={<BuildersPage/>}/>
     </Routes>
     </>
   )

@@ -179,7 +179,7 @@ const HomePage = ({isLoggedIn}) => {
         <div className='grid grid-rows-2 grid-cols-3 gap-[40px]'>
         {
           CardData.map((card,index)=>(
-            <HackathonCard card={card}/>
+            <HackathonCard key={index} card={card}/>
           ))
           
         }
@@ -191,7 +191,7 @@ const HomePage = ({isLoggedIn}) => {
         <div className='flex gap-[4.5rem]'>
           {
             userData.map((user,index)=>(
-              <div className='flex flex-col justify-center items-center gap-3 mt-8 '>
+              <div key={index} className='flex flex-col justify-center items-center gap-3 mt-8 '>
               <img className='rounded-full' src={user.userImg}></img>
               <span className='text-customGrayText scale-125 font-medium'>{user.name}</span>
               </div>
@@ -206,7 +206,7 @@ const HomePage = ({isLoggedIn}) => {
         <div className='flex gap-[7.5rem]'>
           {
             NumberData.map((num,index)=>(
-              <div className='flex flex-col justify-center items-start' >
+              <div key={index} className='flex flex-col justify-center items-start' >
               {
                 num.value.includes("K")? 
                 <p className='text-[3rem] font-medium'>{num.value.split("K")[0]}<span className='text-customBrightBlue'>K+</span></p>
