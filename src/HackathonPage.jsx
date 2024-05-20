@@ -113,6 +113,9 @@ const HackathonPage = () => {
     const totalPages = Math.ceil(CardData.length / itemsPerPage);
     const visibleCardData = CardData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     const visibleCardData2 = CardData.slice((currentPage - 1) * 2, currentPage * 2);
+
+    // const updatedToken = localStorage.getItem("token");
+    // console.log("updatedToken", updatedToken);
   return (
     <div >
       <div className='mt-[7rem] flex justify-center items-start '>

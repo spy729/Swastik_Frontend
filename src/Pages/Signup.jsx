@@ -8,6 +8,7 @@ import SignupImg from "../assets/SignupImg.png";
 import { FaRegUser } from "react-icons/fa";
 import { GoOrganization } from "react-icons/go";
 import { GiPayMoney } from "react-icons/gi";
+import { toast } from "react-toastify";
 
 const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const navigate=useNavigate();
@@ -28,7 +29,7 @@ const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
     console.log(confirmPassword)
     console.log(role)
     if(password!==confirmPassword){
-      alert("Password Not Matched")
+      toast.info("Confirm Password not matched")
       setPassword('')
       setConfirmPassword('')
       return ''
@@ -47,8 +48,12 @@ const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
       });
       const data = await response.json();
       if(response.ok){
+        toast.success("User Signup Succesfully ")
         navigate('/');
         setLoggedIn(true);
+      }
+      else{
+        toast.error("Invalid Credentials ")
       }
       console.log("data==",data)
       setName('')
@@ -72,8 +77,12 @@ const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
       });
       const data = await response.json();
       if(response.ok){
+        toast.success("User Signup Succesfully ")
         navigate('/');
         setLoggedIn(true);
+      }
+      else{
+        toast.error("Invalid Credentials ")
       }
       console.log("data==",data)
       setName('')
