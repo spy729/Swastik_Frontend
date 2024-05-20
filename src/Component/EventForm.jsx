@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import MainBG2 from "../assets/MainBG2.svg"
+import MainBG3 from "../assets/MainBG3.png"
 import { toast } from 'react-toastify';
 import { ImCross } from "react-icons/im";
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink,Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import FooterSection from './FooterSection';
 
@@ -90,12 +91,16 @@ const EventForm = () => {
     
     // Navigate("/hackathon")
   };
+  const openInNewTab = (url) => {
+    const newWindow = window.open("https://hive-hwd.onrender.com", '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  };
 
   return (
     // className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG2})`}}
-    <div className='flex flex-col shadow-3xl  max-w-[100vw] bg-center bg-cover bg-no-repeat ' style={{ backgroundImage: `url(${MainBG2})`}}>
+    <div className='flex flex-col shadow-3xl  max-w-[100vw] bg-cover  ' style={{ backgroundImage: `url(${MainBG3})`}}>
         
-      <form onSubmit={handleSubmit} className=" relative w-[550px] border-2 border-b-8 mx-auto p-5 mt-10 bg-white shadow-md rounded-lg">
+      <form className=" relative w-[550px] border-2 border-b-8 mx-auto p-5 mt-10 bg-white shadow-md rounded-lg">
       <NavLink to="/hackathon"><ImCross  className="absolute right-3 top-3"/></NavLink> 
         <h2 className="text-[3rem] font-bold mb-6 text-customBrightBlue">Create Hackathon</h2>
         <div className="mb-4">
@@ -213,7 +218,10 @@ const EventForm = () => {
             className="w-full px-3 py-2 border rounded-md"
           />
         </div>
-        <button type="submit" className="w-full bg-customBrightBlue  text-white py-2 px-4 mb-5 mt-5 rounded-md hover:bg-customBrightBlueDark">  <a href="https://hive-hwd.onrender.com" target="_blank" rel="noopener noreferrer">Submit</a> </button>
+        <button onClick={() => openInNewTab('https://www.example.com')} className="w-full bg-customBrightBlue  text-white py-2 px-4 mb-5 mt-5 rounded-md hover:bg-customBrightBlueDark"> 
+         Submit
+          </button>
+          {/* <a href="https://hive-hwd.onrender.com" target="_blank"  rel="noopener noreferrer" ><button onClick={handleSubmit}>Submit</button> </a> */}
       </form>
       <div >
         <FooterSection/>

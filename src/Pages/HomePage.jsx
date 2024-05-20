@@ -1,6 +1,7 @@
 import React from 'react'
 import MainBg from "../assets/MainBg.png"
 import MainBG2 from "../assets/MainBG2.svg"
+import MainBG3 from "../assets/MainBG3.png"
 import imagetop from "../assets/Rectangle 4.png"
 import grpImg from "../assets/Group 8.png"
 import CarsouleImage1 from "../assets/CarsouleImage1.png"
@@ -133,7 +134,7 @@ const HomePage = ({isLoggedIn}) => {
   ]
   return (
     // className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBg})`}}
-    <div className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG2})`}} >
+    <div className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG3})`}} >
     {/* <img className='-z-50 w-[20rem]' src={Circle1}></img> */}
       <div className='pt-[7rem] flex justify-around'>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
