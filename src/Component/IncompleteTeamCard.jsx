@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaCircleUser } from "react-icons/fa6";
+import { toast } from 'react-toastify';
 
 const IncompleteTeamCard = ({data}) => {
+    const [joined,setJoined] =useState('false')
   return (
       <div className=' flex justify-between items-center gap-10 m-w[680px] border-2 border-customGrayText rounded-xl p-5 mr-4'>
                 <div className='flex  flex-col gap-3 '>
@@ -44,7 +46,11 @@ const IncompleteTeamCard = ({data}) => {
                     </div>
                     </div>
                 </div>
-                <button className="bg-customBrightBlueBg text-white p-2 pl-5 pr-5 text-[0.8rem] rounded-2xl">Join Request</button>
+                {
+                    joined?<button onClick={()=>{setJoined(!joined); toast.info("Pending")}} className="bg-customBrightBlueBg text-white p-2 pl-5 pr-5 text-[0.8rem] rounded-2xl">Join Request</button>:
+                    <button onClick={()=>{setJoined(!joined); toast.error("Removed")}} className="bg-yellow-500 text-white p-2 pl-5 pr-5 text-[0.8rem] rounded-2xl">Pending</button>
+                }
+                
 
         </div>
   )

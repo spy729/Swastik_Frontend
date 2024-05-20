@@ -7,12 +7,13 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import MainBG2 from "../assets/MainBG2.svg"
 
 const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const navigate=useNavigate();
   const [isShow,setShow]=useState(false)
-  const [email, setEmail] = useState("testemail@test");
-  const [password, setPassword] = useState("12345"); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState(""); 
   const loginUrl=import.meta.env.VITE_HACKATHON_URL;
   console.log("Login url",loginUrl)
   const handleSubmit=async (e)=>{
@@ -51,8 +52,9 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
     setPassword('')
   }
   return (
-      <div className='flex justify-center items-center  z-20 bg-slate-50'>
-      <div className='flex gap-10 justify-center items-center m-w-[950px] m-h-[600px] z-20 m-10 rounded-xl bg-white border-1 border-black p-5 pr-10 shadow-2xl '>
+    
+      <div className='flex justify-center items-center bg-center bg-cover bg-no-repeat  z-20 bg-slate-50' style={{ backgroundImage: `url(${MainBG2})`}}>
+      <div className='flex gap-10 justify-center items-center m-w-[950px] m-h-[600px] z-20 m-9 mr-10 rounded-xl bg-white border-1 border-black p-5 pr-10 shadow-2xl '>
       <img src={loginImg}></img>
       <div className='flex flex-col gap-5'>
         <div className='flex border-b-[1px] border-black gap-3 mb-2'>
