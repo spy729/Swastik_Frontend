@@ -8,6 +8,7 @@ import { FaRegEye } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import MainBG2 from "../assets/MainBG2.svg"
+import MainBG3 from "../assets/MainBG3.png"
 
 const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const navigate=useNavigate();
@@ -53,7 +54,7 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   }
   return (
     
-      <div className='flex justify-center items-center bg-center bg-cover bg-no-repeat  z-20 bg-slate-50' style={{ backgroundImage: `url(${MainBG2})`}}>
+      <div className='flex justify-center items-center bg-center bg-cover bg-no-repeat  z-20 bg-slate-50' style={{ backgroundImage: `url(${MainBG3})`}}>
       <div className='flex gap-10 justify-center items-center m-w-[950px] m-h-[600px] z-20 m-9 mr-10 rounded-xl bg-white border-1 border-black p-5 pr-10 shadow-2xl '>
       <img src={loginImg}></img>
       <div className='flex flex-col gap-5'>

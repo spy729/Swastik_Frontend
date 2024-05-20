@@ -7,6 +7,7 @@ import user3 from "../assets/user3.png"
 import user4 from "../assets/user4.png"
 import user5 from "../assets/user5.png"
 import MainBG2 from "../assets/MainBG2.svg"
+// import MainBG3 from "./assets/MainBG3.png"
 import HackathonImg1 from "../assets/HackathonImg1.png"
 import HackathonImg2 from "../assets/HackathonImg2.png"
 import IncompleteTeamCard from '../Component/IncompleteTeamCard'

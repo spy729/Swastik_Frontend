@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import grpImg from "./assets/Group 8.png"
 import imagetop from "./assets/Rectangle 4.png"
 import MainBG2 from "./assets/MainBG2.svg"
+import MainBG3 from "./assets/MainBG3.png"
 import CompanyLogo from "./assets/CompanyLogo.png"
 import HackathonGirl from "./assets/HackathonGirl.png"
 import HackathonCard2 from './Component/HackathonCard2'
@@ -123,7 +124,7 @@ const HackathonPage = () => {
     // const updatedToken = localStorage.getItem("token");
     // console.log("updatedToken", updatedToken);
   return (
-    <div  className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG2})`}}>
+    <div  className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG3})`}}>
       <div className='mt-[7rem] flex justify-center items-start '>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlimited </span>Opportunites</p>
