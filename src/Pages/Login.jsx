@@ -1,17 +1,18 @@
 import React,{useState} from 'react'
-
+import axios from 'axios'
 import loginImg from "../assets/loginImg.png"
 import palm from "../assets/palm.png"
 import { FcGoogle } from "react-icons/fc";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const navigate=useNavigate();
   const [isShow,setShow]=useState(false)
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); 
+  const [email, setEmail] = useState("testemail@test");
+  const [password, setPassword] = useState("12345"); 
   const loginUrl=import.meta.env.VITE_HACKATHON_URL;
   console.log("Login url",loginUrl)
   const handleSubmit=async (e)=>{
@@ -27,13 +28,25 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
       })
     });
     const data = await response.json();
+    const token = data.token;
+    if (token) {
+      localStorage.setItem("token", token);
+      console.log("localStorage", localStorage);
+      const updatedToken = localStorage.getItem("token");
+      console.log("updatedToken", updatedToken);
+    } else {
+      console.error("No Authorization token found in response headers");
+    }
     if(response.ok){
+      toast.success("Logged in Successfully");
       navigate('/');
       setLoggedIn(true);
     }
-    console.log(data);
-    console.log("Password=",password)
-    console.log("Email=",email)
+    else{
+      toast.error("Invalid Credentials ")
+    }
+    console.log("data",data);
+    console.log("response",response)
     setEmail('')
     setPassword('')
   }
@@ -64,15 +77,15 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
          placeholder='Email ID'
          value={email}
          onChange={(e)=>setEmail(e.target.value)}
-         required
-         ></input>
+        //  required
+         />
         <input className='border-[1px] w-full rounded-md border-black p-2'
          type={isShow ? 'text' : 'password'}
           placeholder='Enter Your Password'
           value={password}
          onChange={(e)=>setPassword(e.target.value)}
          required
-          ></input>
+          />
         {
           !isShow ?
           <FaRegEyeSlash onClick={()=>setShow(!isShow)} className=' absolute scale-125  right-3 top-[4.5rem]'/>:

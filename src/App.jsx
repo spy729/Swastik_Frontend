@@ -10,6 +10,8 @@ import HackathonPage from './HackathonPage'
 import BuildersPage from './Pages/BuildersPage'
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const navigate=useNavigate();
@@ -94,6 +96,7 @@ function App() {
       <Route path="/hackathon" element={<HackathonPage/>}></Route>
       <Route path='/builders' element={<BuildersPage/>}/>
     </Routes>
+    <ToastContainer/>
     </>
   )
 }
