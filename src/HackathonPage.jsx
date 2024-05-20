@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import grpImg from "./assets/Group 8.png"
 import imagetop from "./assets/Rectangle 4.png"
+import MainBG2 from "./assets/MainBG2.svg"
 import CompanyLogo from "./assets/CompanyLogo.png"
 import HackathonGirl from "./assets/HackathonGirl.png"
 import HackathonCard2 from './Component/HackathonCard2'
@@ -9,7 +10,10 @@ import HackathonImg2 from "./assets/HackathonImg2.png"
 import FooterSection from './Component/FooterSection'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
+import EventForm from './Component/EventForm'
+import { NavLink } from 'react-router-dom'
 const HackathonPage = () => {
+    
     const URL = import.meta.env.VITE_HACKATHON_URL
     useEffect(()=>{
         fetchData();
@@ -113,21 +117,24 @@ const HackathonPage = () => {
     const totalPages = Math.ceil(CardData.length / itemsPerPage);
     const visibleCardData = CardData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     const visibleCardData2 = CardData.slice((currentPage - 1) * 2, currentPage * 2);
-
+    const [showForm, setShowForm] = useState(false);
+    const past="past";
+    const upcomming = "upcomming"
     // const updatedToken = localStorage.getItem("token");
     // console.log("updatedToken", updatedToken);
   return (
-    <div >
+    <div  className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG2})`}}>
       <div className='mt-[7rem] flex justify-center items-start '>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlimited </span>Opportunites</p>
             <p className='max-w-[650px] text-3xl leading-normal'>Sharp your skills, by diving headfirst into a world of creative problem-solving and pushing your boundaries at exciting new hackathons!</p>
             <div className='mt-4 flex gap-[3.5rem] items-center'>
-                  <button className='bg-customBlue text-white text-lg p-2.5 pl-4 pr-4 rounded-md'>Apply Hackathon</button>
-                  <button className='text-customBlue border-2 border-customBlue text-lg p-2 pl-3 pr-3 rounded-md'>Organise Hackathon</button>
+                  <button className='bg-customBlue text-white text-lg p-2.5 pl-4 pr-4 rounded-md hover:text-customBlue hover:bg-transparent hover:border-[2px] hover:border-customBlue'>Apply Hackathon</button>
+                  <button className='text-customBlue border-2 border-customBlue hover:bg-customBlue hover:text-white text-lg p-2 pl-3 pr-3 rounded-md'> <NavLink to="/form"> Organise Hackathon</NavLink></button>
             </div>
         </div>
         <img className='w-[35rem] h-[35rem] object-contain mt-[-2rem]' src={HackathonGirl}></img>
+        
       </div>
       <div>
         <img className='ml-[10rem] mt-[-7rem]' src={CompanyLogo}></img>
@@ -169,7 +176,7 @@ const HackathonPage = () => {
                     <div className='grid  grid-cols-2 gap-[40px] mt-8'>
                     {
                         visibleCardData2.map((CardData,index)=>(
-                        <HackathonCard2 key={index} CardData={CardData}/>
+                        <HackathonCard2 upcomming={upcomming} key={index} CardData={CardData}/>
                         ))
                     }
                     </div>
@@ -183,7 +190,8 @@ const HackathonPage = () => {
                     <div className='grid  grid-cols-2 gap-[40px] mt-8'>
                     {
                         visibleCardData2.map((CardData,index)=>(
-                        <HackathonCard2 key={index} CardData={CardData}/>
+                            
+                        <HackathonCard2 key={index} past={past}  CardData={CardData}/>
                         ))
                     }
                     </div>

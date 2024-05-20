@@ -6,6 +6,7 @@ import user2 from "../assets/user2.png"
 import user3 from "../assets/user3.png"
 import user4 from "../assets/user4.png"
 import user5 from "../assets/user5.png"
+import MainBG2 from "../assets/MainBG2.svg"
 import HackathonImg1 from "../assets/HackathonImg1.png"
 import HackathonImg2 from "../assets/HackathonImg2.png"
 import IncompleteTeamCard from '../Component/IncompleteTeamCard'
@@ -230,7 +231,7 @@ const BuildersPage = () => {
         },
     ]
   return (
-    <div>
+    <div className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG2})`}}>
       <img className='object-fill w-full'  src={BuilderImg2}></img>
       <div className='m-10 mb-[12rem]'>
         <p className='text-[3.5rem] font-medium text-customBrightBlue ml-[5rem] mt-[7rem] mb-10'>Participants</p>

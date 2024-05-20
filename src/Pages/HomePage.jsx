@@ -1,5 +1,6 @@
 import React from 'react'
 import MainBg from "../assets/MainBg.png"
+import MainBG2 from "../assets/MainBG2.svg"
 import imagetop from "../assets/Rectangle 4.png"
 import grpImg from "../assets/Group 8.png"
 import CarsouleImage1 from "../assets/CarsouleImage1.png"
@@ -18,6 +19,7 @@ import user2 from "../assets/user2.png"
 import user3 from "../assets/user3.png"
 import user4 from "../assets/user4.png"
 import user5 from "../assets/user5.png"
+import Circle1 from "../assets/Circle1.png"
 
 import { NavLink } from 'react-router-dom'
 import FooterSection from '../Component/FooterSection'
@@ -131,7 +133,8 @@ const HomePage = ({isLoggedIn}) => {
   ]
   return (
     // className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBg})`}}
-    <div >
+    <div className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG2})`}} >
+    {/* <img className='-z-50 w-[20rem]' src={Circle1}></img> */}
       <div className='pt-[7rem] flex justify-around'>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlock</span> New Hackathon</p>
@@ -188,7 +191,7 @@ const HomePage = ({isLoggedIn}) => {
           
         }
         </div>
-        <p className='text-customBrightBlue scale-150'>See all</p>
+        <p className='text-customBrightBlue scale-150'> <NavLink to="/hackathon">See all</NavLink> </p>
       </div>
       <div className='flex flex-col justify-center items-center mt-[6rem] mb-10 gap-10'>
         <p className='text-[3rem] font-medium'>Top Performers of the month </p>

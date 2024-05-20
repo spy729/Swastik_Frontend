@@ -12,6 +12,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import EventForm from './Component/EventForm'
 
 function App() {
   const navigate=useNavigate();
@@ -95,6 +96,7 @@ function App() {
       <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
       <Route path="/hackathon" element={<HackathonPage/>}></Route>
       <Route path='/builders' element={<BuildersPage/>}/>
+      <Route path='/form' element={<EventForm/>}/>
     </Routes>
     <ToastContainer/>
     </>

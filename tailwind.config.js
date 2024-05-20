@@ -16,6 +16,7 @@ export default {
         customPink:"#E214B5",
         customPurple:"#9747FF",
         customBrightBlueBg:"#145BE9",
+        customBrightBlueDark:"#064c92",
         customWhite:"#F7F9FB",
         customFooterBg:"#F0F5F5",
       },
