@@ -13,6 +13,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EventForm from './Component/EventForm'
+import Logo1 from "./assets/Logo1.png"
 
 function App() {
   const navigate=useNavigate();
@@ -36,10 +37,10 @@ function App() {
   return (
     <>
     <div >
-      <nav className='flex p-3 pl-7 pr-7 items-center justify-between shadow-xl'>
+      <nav className='flex p-3 pt-2 pl-7 pr-7 items-center justify-between shadow-xl'>
         <div className='flex gap-12 justify-center items-center  '>
         <NavLink to="/">
-        <h1 className='text-red-500 text-3xl'>Logo</h1>
+        <img className='h-[3rem] object-contain' src={Logo1}></img>
         </NavLink>
           
           <form className='relative'>
