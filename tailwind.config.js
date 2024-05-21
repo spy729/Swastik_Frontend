@@ -22,6 +22,7 @@ export default {
       },
       boxShadow: {
         bottom: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+        customBottom: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -70x inset',
       },
     },
   },

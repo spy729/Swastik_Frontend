@@ -14,14 +14,17 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EventForm from './Component/EventForm'
 import Logo1 from "./assets/Logo1.png"
+import Profile from './Pages/Profile'
 
 function App() {
   const navigate=useNavigate();
+  const [counter,setCounter]=useState(0);
   const location = useLocation();
   const [isLoading , setLoading]=useState(false)
   const [atLoginPage,setLoginPage]=useState(false)
   const [isLoggedIn,setLoggedIn]=useState(false);
   const [isUserClicked,setUserClicked]=useState(false);
+  const [submit,setSubmit]=useState(false)
 
   const getNavLinkClass = (path) => {
      if ((isLoggedIn && location.pathname === path)||(!isLoggedIn && path === "/")) {
@@ -34,10 +37,17 @@ function App() {
      
     return '';
   };
+  const handleIncrease=()=>{
+    
+    // setCounter((counter)=>counter=counter+1)
+    setCounter((counter) => counter+1)
+    console.log(counter);
+    setUserClicked(false)
+  }
   return (
     <>
     <div >
-      <nav className='flex p-3 pt-2 pl-7 pr-7 items-center justify-between shadow-xl'>
+      <nav className='flex p-3 pt-2 pl-7 pr-7 items-center justify-between shadow-customBottom'>
         <div className='flex gap-12 justify-center items-center  '>
         <NavLink to="/">
         <img className='h-[3rem] object-contain' src={Logo1}></img>
@@ -74,7 +84,7 @@ function App() {
           {isUserClicked && (
                   <div className=' z-10 absolute right-0 mt-2 mr-2 w-48 bg-white border rounded-lg shadow-lg'>
                     <ul className='flex flex-col p-2 text-[1.2rem]'>
-                      <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>My Profile</li>
+                      <li onClick={handleIncrease} className='py-1 px-4 hover:bg-gray-200 cursor-pointer'> <NavLink to="/profile">My Profile</NavLink> </li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Notifications</li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Settings</li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'
@@ -95,9 +105,10 @@ function App() {
       <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>}></Route>
       <Route path="/login" element={<Login setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}></Login>}></Route>
       <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} atLoginPage={atLoginPage} setLoginPage={setLoginPage}/>}></Route>
-      <Route path="/hackathon" element={<HackathonPage/>}></Route>
+      <Route path="/hackathon" element={<HackathonPage setSubmit={setSubmit}/>}></Route>
       <Route path='/builders' element={<BuildersPage/>}/>
       <Route path='/form' element={<EventForm/>}/>
+      <Route path='/profile' element={<Profile setSubmit={setSubmit} submit={submit} counter={counter}/>} />
     </Routes>
     <ToastContainer/>
     </>
