@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useState, useRef  } from 'react'
 import grpImg from "./assets/Group 8.png"
 import imagetop from "./assets/Rectangle 4.png"
 import MainBG2 from "./assets/MainBG2.svg"
@@ -13,8 +13,18 @@ import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import EventForm from './Component/EventForm'
 import { NavLink } from 'react-router-dom'
-const HackathonPage = () => {
-    
+const HackathonPage = ({setSubmit}) => {
+    const targetDivRef = useRef(null);
+
+  const handleScroll = () => {
+    if (targetDivRef.current) {
+      targetDivRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const openInNewTab2 = (url) => {
+    const newWindow = window.open("https://localhost:3010", '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  };
     const URL = import.meta.env.VITE_HACKATHON_URL
     useEffect(()=>{
         fetchData();
@@ -125,13 +135,14 @@ const HackathonPage = () => {
     // console.log("updatedToken", updatedToken);
   return (
     <div  className='bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${MainBG3})`}}>
-      <div className='mt-[7rem] flex justify-center items-start '>
+      <div className='pt-[7rem] flex justify-center items-start '>
         <div className='flex flex-col text-xl max-w-[800px] font-normal gap-3 ' >
             <p className='font-medium text-6xl'><span className='text-customBlue'>Unlimited </span>Opportunites</p>
             <p className='max-w-[650px] text-3xl leading-normal'>Sharp your skills, by diving headfirst into a world of creative problem-solving and pushing your boundaries at exciting new hackathons!</p>
             <div className='mt-4 flex gap-[3.5rem] items-center'>
-                  <button className='bg-customBlue text-white text-lg p-2.5 pl-4 pr-4 rounded-md hover:text-customBlue hover:bg-transparent hover:border-[2px] hover:border-customBlue'>Apply Hackathon</button>
-                  <button className='text-customBlue border-2 border-customBlue hover:bg-customBlue hover:text-white text-lg p-2 pl-3 pr-3 rounded-md'> <NavLink to="/form"> Organise Hackathon</NavLink></button>
+                  <button onClick={handleScroll} className='bg-customBlue  text-white text-lg p-2.5 pl-4 pr-4 rounded-md border-[2px] hover:text-customBlue hover:bg-transparent hover:border-[2px] hover:border-customBlue'>Apply Hackathon</button>
+                  <button className='text-customBlue border-2 border-customBlue hover:bg-customBlue hover:text-white  text-lg p-2 pl-3 pr-3 rounded-md'> <NavLink to="/form"> Organise Hackathon</NavLink></button>
+                  <button onClick={()=>openInNewTab2("http://localhost:3010")} className='bg-customPink text-white text-lg p-2.5 pl-4 pr-4 rounded-md border-[2px] hover:text-customPink hover:bg-transparent hover:border-[2px] hover:border-customPurple hover:font-medium'>Connect</button>
             </div>
         </div>
         <img className='w-[35rem] h-[35rem] object-contain mt-[-2rem]' src={HackathonGirl}></img>
@@ -141,13 +152,13 @@ const HackathonPage = () => {
         <img className='ml-[10rem] mt-[-7rem]' src={CompanyLogo}></img>
       </div>
             {/* FEATURED HACKATHONS */}
-        <div className='m-10 mt-[5rem]'>
+        <div ref={targetDivRef} className='m-10 mt-[5rem]'>
             <p className='text-[3rem] font-normal ml-8'><span className='text-customPink'>Featured </span>Hackathons</p>
             <div className='flex justify-center items-center'>
                 <div className='grid  grid-cols-2 gap-[40px] mt-8'>
                 {
                     visibleCardData.map((CardData,index)=>(
-                    <HackathonCard2 key={index} CardData={CardData}/>
+                    <HackathonCard2 setSubmit={setSubmit} key={index} CardData={CardData}/>
                     ))
                 }
                 </div>

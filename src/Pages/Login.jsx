@@ -13,8 +13,8 @@ import MainBG3 from "../assets/MainBG3.png"
 const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const navigate=useNavigate();
   const [isShow,setShow]=useState(false)
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [email, setEmail] = useState("member@gmail.com");
+  const [password, setPassword] = useState("12345"); 
   const loginUrl=import.meta.env.VITE_HACKATHON_URL;
   console.log("Login url",loginUrl)
   const handleSubmit=async (e)=>{

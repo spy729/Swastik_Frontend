@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import { toast } from 'react-toastify';
 
-const HackathonCard2 = ({CardData,past,upcomming}) => {
+const HackathonCard2 = ({CardData,past,upcomming,setSubmit}) => {
   const [teamName, setTeamName] = useState('');
   const [teamCode, setTeamCode] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState(null);
@@ -16,6 +16,7 @@ const HackathonCard2 = ({CardData,past,upcomming}) => {
     toast.success("Applied Successfully")
     setTeamCode("")
     setTeamName("")
+    setSubmit(true)
   }
   return (
     <div className=' bg-white max-w-[670px] m-h-[420px] rounded-xl border-[2px] border-customGrayText text-customGrayText p-5'>
