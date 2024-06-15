@@ -22,7 +22,7 @@ const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
       ));  
       setTimeout(() => {
         toast.dismiss(customToastId);
-      }, 500);
+      }, 1000);
     };
   
     useEffect(() => {
