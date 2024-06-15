@@ -5,7 +5,7 @@ import arrow from "../assets/arrow.png"
 import people from "../assets/people.png"
 import clock from "../assets/clock.png"
 import TiltComponent from "react-parallax-tilt";
-import styled from "styled-components";
+import {styled} from "styled-components";
 
 const HackathonCard = ({card}) => {
   const [isLiked,setLiked]=useState(true)
