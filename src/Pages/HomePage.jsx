@@ -1,15 +1,8 @@
 import React from 'react'
-import MainBg from "../assets/MainBg.png"
-import MainBG2 from "../assets/MainBG2.svg"
 import MainBG3 from "../assets/MainBG3.png"
 import imagetop from "../assets/Rectangle 4.png"
 import grpImg from "../assets/Group 8.png"
-import CarsouleImage1 from "../assets/CarsouleImage1.png"
-import CarsouleImage2 from "../assets/CarsouleImage2.png"
-import CarsouleImage3 from "../assets/CarsouleImage3.png"
 import CompanyLogo from "../assets/CompanyLogo.png"
-import Carousel from 'better-react-carousel'
-import styled from 'styled-components'
 import HackathonCard from '../Component/HackathonCard'
 import Cardbg1 from "../assets/Cardbg1.png";
 import Cardbg2 from "../assets/Cardbg2.png";
@@ -22,7 +15,7 @@ import user3 from "../assets/user3.png"
 import user4 from "../assets/user4.png"
 import user5 from "../assets/user5.png"
 import Circle1 from "../assets/Circle1.png"
-
+import ImageCarousel from "../Component/ImageCarousel"
 import { NavLink } from 'react-router-dom'
 import FooterSection from '../Component/FooterSection'
 
@@ -169,18 +162,7 @@ const HomePage = ({isLoggedIn}) => {
         <img className='ml-[10rem] mt-[-6rem]' src={CompanyLogo}></img>
       </div>
       <div className='flex justify-center items-center mt-[5rem] ml-[8rem] mr-[11rem]'>
-        <Carousel cols={2} rows={1} gap={40}  loop autoplay={2000}>
-          {[CarsouleImage1, CarsouleImage2, CarsouleImage3].map((image, index) => (
-            <Carousel.Item key={index}>
-              <img className='' src={image} alt={`Carousel Image ${index + 1}`} />
-            </Carousel.Item>
-          ))}
-          {[CarsouleImage2, CarsouleImage3, CarsouleImage1].map((image, index) => (
-            <Carousel.Item key={index + 3}>
-              <img className='' src={image} alt={`Carousel Image ${index + 4}`} />
-            </Carousel.Item>
-          ))}
-        </Carousel>
+        <ImageCarousel /> 
       </div>
       {/* latest hackatons */}
       <div className='flex flex-col items-center justify-center mt-10 gap-10 '>
@@ -190,7 +172,6 @@ const HomePage = ({isLoggedIn}) => {
           CardData.map((card,index)=>(
             <HackathonCard key={index} card={card}/>
           ))
-          
         }
         </div>
         <p className='text-customBrightBlue scale-150'> <NavLink to="/hackathon">See all</NavLink> </p>
