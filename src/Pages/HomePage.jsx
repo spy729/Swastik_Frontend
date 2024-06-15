@@ -167,7 +167,7 @@ const HomePage = ({isLoggedIn}) => {
       <div>
         <img className='ml-[10rem] mt-[-6rem]' src={CompanyLogo}></img>
       </div>
-      <div className='flex justify-center items-center mt-[5rem] ml-[8rem] mr-[11rem]'>
+      {/* <div className='flex justify-center items-center mt-[5rem] ml-[8rem] mr-[11rem]'>
         <Carousel cols={2} rows={1} gap={40}  loop autoplay={2000}>
           {[CarsouleImage1, CarsouleImage2, CarsouleImage3].map((image, index) => (
             <Carousel.Item key={index}>
@@ -180,7 +180,7 @@ const HomePage = ({isLoggedIn}) => {
             </Carousel.Item>
           ))}
         </Carousel>
-      </div>
+      </div> */}
       {/* latest hackatons */}
       <div className='flex flex-col items-center justify-center mt-10 gap-10 '>
         <p className='text-[3rem] font-normal'><span className='text-customBlue'>Latest</span> Hackathons</p>
