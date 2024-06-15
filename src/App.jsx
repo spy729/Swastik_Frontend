@@ -17,6 +17,7 @@ import Logo1 from "./assets/Logo1.png"
 import Profile from './Pages/Profile'
 
 function App() {
+  
   const navigate=useNavigate();
   const [counter,setCounter]=useState(0);
   const location = useLocation();
@@ -99,7 +100,6 @@ function App() {
         </div>
         }
       </nav>
-      
     </div>
     <Routes>
       <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>}></Route>
