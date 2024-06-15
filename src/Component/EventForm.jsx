@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MainBG2 from "../assets/MainBG2.svg"
 import MainBG3 from "../assets/MainBG3.png"
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 import { ImCross } from "react-icons/im";
 import { NavLink,Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

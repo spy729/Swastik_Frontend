@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaCircleUser } from "react-icons/fa6";
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const IncompleteTeamCard = ({data}) => {
     const [joined,setJoined] =useState('false')
@@ -47,7 +47,7 @@ const IncompleteTeamCard = ({data}) => {
                     </div>
                 </div>
                 {
-                    joined?<button onClick={()=>{setJoined(!joined); toast.info("Pending")}} className="bg-customBrightBlueBg text-white p-2 pl-5 pr-5 text-[0.8rem] rounded-2xl">Join Request</button>:
+                    joined?<button onClick={()=>{setJoined(!joined); toast("Pending")}} className="bg-customBrightBlueBg text-white p-2 pl-5 pr-5 text-[0.8rem] rounded-2xl">Join Request</button>:
                     <button onClick={()=>{setJoined(!joined); toast.error("Removed")}} className="bg-yellow-500 text-white p-2 pl-5 pr-5 text-[0.8rem] rounded-2xl">Pending</button>
                 }
                 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { GoArrowUpRight } from "react-icons/go";
 import { FaSearch } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const HackathonCard2 = ({CardData,past,upcomming,setSubmit}) => {
   const [teamName, setTeamName] = useState('');

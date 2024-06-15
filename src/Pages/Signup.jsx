@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import palm from "../assets/palm.png"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
@@ -8,10 +8,26 @@ import SignupImg from "../assets/SignupImg.png";
 import { FaRegUser } from "react-icons/fa";
 import { GoOrganization } from "react-icons/go";
 import { GiPayMoney } from "react-icons/gi";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import MainBG2 from "../assets/MainBG2.svg"
 import MainBG3 from "../assets/MainBG3.png"
 const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
+    const showCustomToast = () => {
+      const customToastId = toast.custom((t) => (
+        <div className="bg-white border  shadow-2xl rounded-lg py-4 px-3">
+          <span className="text-gray-800">
+            SignUp as <b className="text-blue-900">Organiser</b>
+          </span>
+        </div>
+      ));  
+      setTimeout(() => {
+        toast.dismiss(customToastId);
+      }, 500);
+    };
+  
+    useEffect(() => {
+      showCustomToast();
+    }, []);
   const navigate=useNavigate();
   const [isShow,setShow]=useState(false)
   const [isShow2,setShow2]=useState(false)

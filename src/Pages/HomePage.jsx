@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainBG3 from "../assets/MainBG3.png"
 import imagetop from "../assets/Rectangle 4.png"
 import grpImg from "../assets/Group 8.png"

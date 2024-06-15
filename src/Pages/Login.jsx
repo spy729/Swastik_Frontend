@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import loginImg from "../assets/loginImg.png"
 import palm from "../assets/palm.png"
@@ -6,11 +6,21 @@ import { FcGoogle } from "react-icons/fc";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 import MainBG2 from "../assets/MainBG2.svg"
 import MainBG3 from "../assets/MainBG3.png"
 
 const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
+useEffect(()=>{
+  const tostID =toast(
+    <span>
+      Click on <b className='text-blue-800'>Login</b> Button
+    </span>
+  );
+  setTimeout(()=>{
+    toast.dismiss(tostID)
+  },1500)
+},[])
   const navigate=useNavigate();
   const [isShow,setShow]=useState(false)
   const [email, setEmail] = useState("member@gmail.com");
@@ -19,6 +29,7 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   console.log("Login url",loginUrl)
   const handleSubmit=async (e)=>{
     e.preventDefault();
+    const loadingToastId = toast.loading('Logging in...');
     const response = await fetch(`${loginUrl}/auth/login`,{
       method:"POST",
       headers:{
@@ -40,12 +51,12 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
       console.error("No Authorization token found in response headers");
     }
     if(response.ok){
-      toast.success("Logged in Successfully");
+      toast.success('Login successful!', { id: loadingToastId });
       navigate('/');
       setLoggedIn(true);
     }
     else{
-      toast.error("Invalid Credentials ")
+      toast.error('Login failed. Please try again.', { id: loadingToastId });
     }
     console.log("data",data);
     console.log("response",response)
@@ -65,7 +76,7 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
           <p className='font-medium text-[1.2rem] mb-2'>Welcome Back To Project Swastik!</p>
         </div>
       </div>
-      <div className='flex  items-center border-2 border-b-4 rounded-lg p-2'>
+      <div className='flex  items-center border-2 cursor-not-allowed border-b-4 rounded-lg p-2'>
         <FcGoogle className='scale-150'/>
         <p className='m-auto text-customGrayText scale-90'>continue with Google</p>
       </div>
@@ -94,9 +105,9 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
           <FaRegEyeSlash onClick={()=>setShow(!isShow)} className=' absolute scale-125  right-3 top-[4.5rem]'/>:
           <FaRegEye onClick={()=>setShow(!isShow)} className=' absolute scale-125 right-3 top-[4.5rem] '/>
         }
-        <button className='bg-customBlue text-white rounded-3xl p-2' onClick={handleSubmit}>Login</button>
+        <button className='bg-customBlue text-white rounded-3xl p-2 hover:bg-customBrightBlueDark hover:scale-95' onClick={handleSubmit}>Login</button>
       </form>
-      <button className='border-[1px] border-black rounded-3xl p-2 text-customGrayText'>Don’t have any Account ? <span className='text-customBrightBlue'> <NavLink to="/signup">Sign up</NavLink> </span></button>
+      <button className='border-[1px] border-black rounded-3xl p-2 text-customGrayText'>Don’t have any Account ? <span className='text-customBrightBlue font-medium hover:font-bold'> <NavLink to="/signup">Sign up</NavLink> </span></button>
 
       </div>
     </div>

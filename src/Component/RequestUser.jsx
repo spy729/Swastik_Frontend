@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { toast } from 'react-toastify'
+import toast from 'react-hot-toast'
 
 const RequestUser = ({data}) => {
   const [approve ,setApprove]=useState('false')

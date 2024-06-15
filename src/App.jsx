@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EventForm from './Component/EventForm'
 import Logo1 from "./assets/Logo1.png"
 import Profile from './Pages/Profile'
+import toast from 'react-hot-toast'
 
 function App() {
   
@@ -89,7 +90,7 @@ function App() {
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Notifications</li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>Settings</li>
                       <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'
-                      onClick={()=>{setLoggedIn(false);navigate("/");setUserClicked(false)}}
+                      onClick={()=>{setLoggedIn(false);navigate("/");setUserClicked(false);toast.success("User Logged Out")}}
                       >Logout</li>
                     </ul>
                   </div>
