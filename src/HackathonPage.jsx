@@ -25,7 +25,7 @@ const HackathonPage = ({setSubmit}) => {
     const newWindow = window.open("https://localhost:3010", '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
   };
-    const URL = import.meta.env.VITE_HACKATHON_URL
+    const URL = "https://project-hwd-js-ts.onrender.com"
     useEffect(()=>{
         fetchData();
     },[])

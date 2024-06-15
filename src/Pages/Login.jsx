@@ -15,7 +15,7 @@ const Login = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const [isShow,setShow]=useState(false)
   const [email, setEmail] = useState("member@gmail.com");
   const [password, setPassword] = useState("12345"); 
-  const loginUrl=import.meta.env.VITE_HACKATHON_URL;
+  const loginUrl="https://project-hwd-js-ts.onrender.com";
   console.log("Login url",loginUrl)
   const handleSubmit=async (e)=>{
     e.preventDefault();

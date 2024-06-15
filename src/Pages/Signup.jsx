@@ -21,7 +21,7 @@ const Signup = ({atLoginPage,setLoginPage,setLoggedIn}) => {
   const [confirmPassword, setConfirmPassword] = useState(''); 
   const [role,setRole]=useState("member")
 
-  const SignUpUrl=import.meta.env.VITE_HACKATHON_URL;
+  const SignUpUrl="https://project-hwd-js-ts.onrender.com";
   const handleSubmit=async(e)=>{
     e.preventDefault();
     console.log(name)

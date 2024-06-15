@@ -33,11 +33,11 @@ const EventForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form data submitted:', formData);
-    const url = import.meta.env.VITE_HACKATHON_URL;
+    const url = "https://project-hwd-js-ts.onrender.com"
 
     try {
       // Create hackathon event
-      const createResponse = await fetch(`${url}/hackathon/create_hackathon`, {
+      const createResponse = await fetch(`https://project-hwd-js-ts.onrender.com/hackathon/create_hackathon`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const EventForm = () => {
 
 
       // Update hackathon event with the obtained event ID
-      const updateResponse = await fetch(`${url}/hackathon/update_hackathon/${eventId}`, {
+      const updateResponse = await fetch(`$https://project-hwd-js-ts.onrender.com/hackathon/update_hackathon/${eventId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
